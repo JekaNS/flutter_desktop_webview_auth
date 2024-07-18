@@ -123,6 +123,11 @@ try {
     // something went wrong
 }
 
-final credential = AppleAuthProvider.credentialWithIDToken(result.idToken!, args.nonce, AppleFullPersonName());
+final credential = AppleAuthProvider.credentialWithIDToken(
+    result.idToken!,
+    args.nonce,
+    AppleFullPersonName(),
+);
+
 FirebaseAuth.instance.signInWithCredential(credential);
 ```
