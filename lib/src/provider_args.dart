@@ -33,13 +33,10 @@ abstract class ProviderArgs implements JsonSerializable {
       args = uri.queryParameters;
     }
 
-    if (args.containsKey('access_token') ||
-        args.containsKey('id_token') ||
-        args.containsKey('code')) {
+    if (args.containsKey('access_token') || args.containsKey('id_token')) {
       final result = AuthResult(
         accessToken: args['access_token'],
         idToken: args['id_token'],
-        code: args['code'],
       );
 
       return SynchronousFuture(result);
