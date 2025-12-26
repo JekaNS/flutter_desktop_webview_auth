@@ -30,7 +30,7 @@ android {
         namespace 'io.invertase.desktop_webview_auth'
     }
 
-    compileSdkVersion 33
+    compileSdk = flutter.compileSdkVersion
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8

@@ -1,3 +1,7 @@
+# 0.0.16
+
+- fix: Update compileSdkVersion to use flutter version
+
 # 0.0.15
 
 - fix: Google Sign in exiting early, updated OAuth path
