@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d660a41-1e8d-4c50-bc1c-1443b2a94151" name="Changes" comment="Add Apple signIn support">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="5d660a41-1e8d-4c50-bc1c-1443b2a94151" name="Changes" comment=".idea">
+      <change afterPath="$PROJECT_DIR$/android/build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/settings.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop_webview_auth.iml" beforeDir="false" afterPath="$PROJECT_DIR$/desktop_webview_auth.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/settings.gradle" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +78,7 @@
     "io.flutter.project.isFirstOpen": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/jeka/Work/flutter_desktop_webview_auth",
-    "settings.editor.selected.configurable": "dart.settings",
+    "settings.editor.selected.configurable": "flutter.settings",
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
@@ -110,6 +112,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add Apple signIn support" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Apple signIn support" />
+    <MESSAGE value="Update dependencies and SDK constraints for Flutter 3.50&#10;&#10;- Require Dart ^3.13.0 and Flutter &gt;=3.47.0; bump crypto, http,&#10;  plugin_platform_interface and flutter_lints&#10;- Migrate example to material_ui, googleapis 19 (identitytoolkit v1)&#10;  and check context.mounted after async gaps&#10;- Await the sign-in result inside try so its errors are caught&#10;&#10;Co-Authored-By: Claude Opus 5.5 &lt;noreply@anthropic.com&gt;" />
+    <MESSAGE value=".idea" />
+    <option name="LAST_COMMIT_MESSAGE" value=".idea" />
   </component>
 </project>
