@@ -26,10 +26,10 @@ class RecaptchaVerificationInvokeArgs extends RecaptchaArgs {
   final String redirectUrl;
 
   const RecaptchaVerificationInvokeArgs({
-    required String siteKey,
-    required String siteToken,
+    required super.siteKey,
+    required super.siteToken,
     required this.redirectUrl,
-  }) : super(siteKey: siteKey, siteToken: siteToken);
+  });
 
   factory RecaptchaVerificationInvokeArgs.fromArgs(
     RecaptchaArgs args,

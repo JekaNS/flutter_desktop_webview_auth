@@ -26,7 +26,7 @@ class DesktopWebviewAuth {
   static late ProviderArgs _args;
   static late Completer<AuthResult?> _signInResultCompleter;
 
-  static _invokeMethod<T>({
+  static Future<T?> _invokeMethod<T>({
     required String name,
     required JsonSerializable args,
     num? width,
@@ -167,7 +167,7 @@ class DesktopWebviewAuth {
 
     try {
       await _invokeSignIn(args, width, height);
-      return _signInResultCompleter.future;
+      return await _signInResultCompleter.future;
     } catch (_) {
       return null;
     }

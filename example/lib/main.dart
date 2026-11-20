@@ -1,7 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
-import 'package:flutter/material.dart';
-import 'package:googleapis/identitytoolkit/v3.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:googleapis/identitytoolkit/v1.dart';
 import 'package:googleapis_auth/googleapis_auth.dart';
 
 import 'package:desktop_webview_auth/desktop_webview_auth.dart';
@@ -30,11 +30,12 @@ const GITHUB_CLIENT_ID = '582d07c80a9afae77406';
 const GITHUB_CLIENT_SECRET = '2d60f5e850bc178dfa6b7f6c6e37a65b175172d3';
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   SignInCallback signInWithArgs(BuildContext context, ProviderArgs args) =>
       () async {
         final result = await DesktopWebviewAuth.signIn(args);
+        if (!context.mounted) return;
         notify(context, result?.toString());
       };
 
@@ -49,12 +50,11 @@ class MyApp extends StatelessWidget {
   Future<void> getRecaptchaVerification(BuildContext context) async {
     final client = clientViaApiKey(apiKey);
     final identityToolkit = IdentityToolkitApi(client);
-    final res = identityToolkit.relyingparty;
-
-    final recaptchaResponse = await res.getRecaptchaParam();
+    final recaptchaResponse = await identityToolkit.v1.getRecaptchaParams();
 
     final args = RecaptchaArgs(
       siteKey: recaptchaResponse.recaptchaSiteKey!,
+      // ignore: deprecated_member_use
       siteToken: recaptchaResponse.recaptchaStoken!,
     );
 
@@ -64,6 +64,7 @@ class MyApp extends StatelessWidget {
       width: 600,
     );
 
+    if (!context.mounted) return;
     notify(context, result?.verificationId);
   }
 
@@ -73,7 +74,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
-            padding: MaterialStateProperty.all(const EdgeInsets.all(20)),
+            padding: WidgetStateProperty.all(const EdgeInsets.all(20)),
           ),
         ),
       ),
@@ -82,7 +83,6 @@ class MyApp extends StatelessWidget {
           builder: (context) {
             final buttons = [
               ElevatedButton(
-                child: const Text('Sign in with Google'),
                 onPressed: signInWithArgs(
                   context,
                   GoogleSignInArgs(
@@ -92,9 +92,9 @@ class MyApp extends StatelessWidget {
                         'https://www.googleapis.com/auth/userinfo.email',
                   ),
                 ),
+                child: const Text('Sign in with Google'),
               ),
               ElevatedButton(
-                child: const Text('Sign in with Twitter'),
                 onPressed: signInWithArgs(
                   context,
                   TwitterSignInArgs(
@@ -103,9 +103,9 @@ class MyApp extends StatelessWidget {
                     redirectUri: REDIRECT_URI,
                   ),
                 ),
+                child: const Text('Sign in with Twitter'),
               ),
               ElevatedButton(
-                child: const Text('Sign in with Facebook'),
                 onPressed: signInWithArgs(
                   context,
                   FacebookSignInArgs(
@@ -113,9 +113,9 @@ class MyApp extends StatelessWidget {
                     redirectUri: REDIRECT_URI,
                   ),
                 ),
+                child: const Text('Sign in with Facebook'),
               ),
               ElevatedButton(
-                child: const Text('Sign in with GitHub'),
                 onPressed: signInWithArgs(
                   context,
                   GitHubSignInArgs(
@@ -124,6 +124,7 @@ class MyApp extends StatelessWidget {
                     redirectUri: REDIRECT_URI,
                   ),
                 ),
+                child: const Text('Sign in with GitHub'),
               ),
               ElevatedButton(
                 child: const Text('Recaptcha Verification'),
@@ -137,7 +138,7 @@ class MyApp extends StatelessWidget {
                 child: ListView.separated(
                   itemCount: buttons.length,
                   shrinkWrap: true,
-                  separatorBuilder: (_, __) => const Divider(),
+                  separatorBuilder: (_, _) => const Divider(),
                   itemBuilder: (context, index) {
                     return buttons[index];
                   },
