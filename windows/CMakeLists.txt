@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.14)
 
 set(PROJECT_NAME "desktop_webview_auth")
 
-set(WIL_VERSION "1.0.211019.2")
-set(WEBVIEW_VERSION "1.0.1108.44")
+set(WIL_VERSION "1.0.260126.7")
+set(WEBVIEW_VERSION "1.0.4314.35")
 
 project(${PROJECT_NAME} LANGUAGES CXX)
 
@@ -11,8 +11,8 @@ project(${PROJECT_NAME} LANGUAGES CXX)
 # not be changed
 set(PLUGIN_NAME "desktop_webview_auth_plugin")
 
-set(NUGET_URL https://dist.nuget.org/win-x86-commandline/v5.10.0/nuget.exe)
-set(NUGET_SHA256 852b71cc8c8c2d40d09ea49d321ff56fd2397b9d6ea9f96e532530307bbbafd3)
+set(NUGET_URL https://dist.nuget.org/win-x86-commandline/v8.0.0/nuget.exe)
+set(NUGET_SHA256 d4ddb222cb8fca8200b59e82286c0cba9c29b4fce6f9835fdfa54e67c9483d07)
 
 find_program(NUGET nuget)
 if(NOT NUGET)
